@@ -1,0 +1,171 @@
+///////////////////////////////////////////////////////////////////////////////
+//	CSCE 4323
+//	Fall 2018
+//	Homework #1
+//	Blake Fasse
+//  The following code is for use with the automata simulators found here:
+//    http://web.cs.ucdavis.edu/~doty/automata/
+///////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////
+// 1.4a
+// DFA recognizing { w | w has at least three a's and at least two b's}
+// 
+// Summary: Create 12 states, q,q0, q00, ... ,q00000000000, with q being 
+//          the start state and q00000000000 being the accept state. Each state 
+//          has at most 2 ouputs and at most 2 inputs for the alphabet a and b. 
+//          Accept when at least three a's and two b's. 
+//
+
+states = {q,         
+          q0,       
+          q00,      
+          q000,
+          q0000,
+          q00000,
+          q000000,
+          q0000000,
+          q00000000,
+          q000000000,
+          q0000000000,
+          q00000000000}      
+
+//                a,b
+input_alphabet = {0,1}
+
+
+start_state =    q
+
+// accept if at least three a's and at least two b's
+accept_states =  {q00000000000}
+
+delta =
+    q,0             -> q0;
+    q,1             -> q0000;
+    
+    q0,0            -> q00;
+    q0,1            -> q00000;
+    
+    q00,0           -> q000;
+    q00,1           -> q000000;
+    
+    q000,0          -> q000;
+    q000,1          -> q0000000;
+    
+    q0000,0         -> q00000;
+    q0000,1         -> q00000000;
+    
+    q00000,0        -> q000000;
+    q00000,1        -> q000000000;
+    
+    q000000,0       -> q0000000;
+    q000000,1       -> q0000000000;
+    
+    q0000000,0      -> q0000000;
+    q0000000,1      -> q00000000000;
+    
+    q00000000,0     -> q000000000;
+    q00000000,1     -> q00000000;
+    
+    q000000000,0    -> q0000000000;
+    q000000000,1    -> q000000000;
+    
+    q0000000000,0   -> q00000000000;
+    q0000000000,1   -> q0000000000;
+    
+    q00000000000,0  -> q00000000000;
+    q00000000000,1  -> q00000000000;
+	
+	
+	
+///////////////////////////////////////////////////////////////////////////////
+// 1.4c
+// DFA recognizing { w | w has an even number of a's and one or 2 b's}
+// 
+// Summary: Create 8 states, q, q0, q00, ... ,q0000000, with q0 and q00 being 
+//          the accept states. Accepts when there is an even number of a's, 
+//          including 0, and one or two b's
+//
+
+states = {q,         
+          q0,       
+          q00,      
+          q000,
+          q0000,
+          q00000,
+          q000000,
+          q0000000}      
+
+//                a,b
+input_alphabet = {0,1}
+
+
+start_state =    q
+
+
+accept_states =  {q0, q00}
+
+delta =
+    q,0         -> q0000;
+    q,1         -> q0;
+    
+    q0,0        -> q00000;
+    q0,1        -> q00;
+    
+    q00,0       -> q000000;
+    q00,1       -> q000;
+    
+    q000,0      -> q0000000;
+    q000,1      -> q000;
+    
+    q0000,0     -> q;
+    q0000,1     -> q00000;
+    
+    q00000,0    -> q0;
+    q00000,1    -> q000000;
+    
+    q000000,0   -> q00;
+    q000000,1   -> q0000000;
+    
+    q0000000,0  -> q000;
+    q0000000,1  -> q0000000;
+    
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// 1.4f
+// DFA recognizing { w | w has an odd number of a's and ends with b}
+// 
+// Summary: Create 4 states, q,q0,q00,q000, with q000 being the accept state.
+//          Accept when there is any odd number of a's in nonsequental order 
+//          and ends with b.
+//
+
+states = {q,         
+          q0,       
+          q00,      
+          q000}
+
+//                a,b
+input_alphabet = {0,1}
+
+
+start_state =    q
+
+
+accept_states =  {q000}
+
+delta =
+   q,0      -> q0;
+   q,1      -> q00;
+   
+   q0,0     -> q;
+   q0,1     -> q000;
+   
+   q00,0    -> q0;
+   q00,1    -> q00;
+   
+   q000,0   -> q;
+   q000,1   -> q000;
