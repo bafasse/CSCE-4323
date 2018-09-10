@@ -276,3 +276,148 @@ delta =
    
    q000,0   -> q000;
    q000,1   -> q000; 
+
+
+///////////////////////////////////////////////////////////////////////////////
+// 1.6f
+// DFA recognizing {w|w doesn’t contain the substring 110}
+// 
+// Summary: Create 4 states, q,q0,q00,q000, with all but q000 being accept states.
+//          Accept when w doesnt contain the substring 100.
+//
+
+states = {q,         
+          q0,       
+          q00,
+          q000}
+
+
+input_alphabet = {0,1}
+
+
+start_state =    q
+
+
+accept_states =  {q,q0,q00}
+
+delta =
+   q,0      -> q;
+   q,1      -> q0;
+   
+   q0,0     -> q;
+   q0,1     -> q00;
+   
+   q00,0    -> q000;
+   q00,1    -> q00;
+   
+   q000,0   -> q000;
+   q000,1   -> q000;
+   
+	
+	
+	
+///////////////////////////////////////////////////////////////////////////////
+// 1.6i
+// DFA recognizing {w| every odd position of w is a 1}
+// 
+// Summary: Create 3 states, q,q0,q00, with q and q0 being the accept states.
+//          Accept when there is a 1 in every odd position. 
+//
+
+states = {q,         
+          q0,       
+          q00}
+
+
+input_alphabet = {0,1}
+
+
+start_state =    q
+
+
+accept_states =  {q,q0}
+
+delta =
+   q,0      -> q00;
+   q,1      -> q0;
+   
+   q0,0     -> q;
+   q0,1     -> q;
+   
+   q00,0    -> q00;
+   q00,1    -> q00;
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// 1.6j
+// DFA recognizing {w|w contains at least two 0s and at most one 1}
+// 
+// Summary: Create 7 states, q,q0,q00, ... ,q000000, with q0000 and q000000 being
+//          the accept states. Accept when there is at least two 0's and at most
+//          one 1
+//
+
+states = {q,         
+          q0,       
+          q00,
+          q000,
+          q0000,
+          q00000,
+          q000000}
+
+
+input_alphabet = {0,1}
+
+
+start_state =    q
+
+
+accept_states =  {q0000,q000000}
+
+delta =
+   q,0      -> q0;
+   q,1      -> q00;
+   
+   q0,0     -> q0000;
+   q0,1     -> q00;
+   
+   q00,0    -> q000000;
+   q00,1    -> q00000;
+   
+   q000,0   -> q00;
+   q000,1   -> q00000;
+   
+   q0000,0  -> q0000;
+   q0000,1  -> q000000;
+   
+   q00000,0 -> q00000;
+   q00000,1 -> q00000;
+   
+   q000000,0    -> q000000;
+   q000000,1    -> q00000;
+   
+
+
+///////////////////////////////////////////////////////////////////////////////
+// 1.6m
+// DFA recognizing the empty set
+// 
+// Summary: Create 1 state, q, with no accept states. Since there are no accept 
+//          states and the language is the empty set the machine will never accept.  
+//
+
+states = {q}
+
+
+input_alphabet = {0,1}
+
+
+start_state =    q
+
+
+accept_states =  {}
+
+delta =
+   q,0      -> q;
+   q,1      -> q;
