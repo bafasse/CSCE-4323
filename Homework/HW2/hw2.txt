@@ -12,7 +12,8 @@
 // 1.7b
 // NFA recognizing { w | w contains the substring 0101 i.e, w = x0101y for some x and y}
 // 
-// Summary: <high-level-summary-of-solution> 
+// Summary: Contains 5 states, q0,q1, ... ,q4, with q4 being an accept state. 
+//          Accept when w contains the substring 0101 
 //
 
 states =          {q0,q1,q2,q3,q4}
@@ -39,7 +40,8 @@ delta =
 // 1.7c
 // NFA recognizing { w | w contains an even number of 0's and exactly two 1's }
 // 
-// Summary: <high-level-summary-of-solution> 
+// Summary: Contains 6 states, q0,q1, ... ,q5, with q1 and q5 being accept states.
+//          Accepts when w contains any even number of 0's and exactly two 1's 
 //
 
 states =          {q0,q1,q2,q3,q4,q5}
@@ -75,7 +77,8 @@ delta =
 // 1.7d
 // NFA recognizing { w | w contains only 0 }
 // 
-// Summary: <high-level-summary-of-solution> 
+// Summary: Contains 2 states, q0,q1, with q1 being an accept state. Accepts when
+//          w contains only 0, nothin more.
 //
 
 states =          {q0,q1}
@@ -90,18 +93,32 @@ delta =
 // 1.7e
 // NFA recognizing { w | w contains 0*1*0*}
 // 
-// Summary: <high-level-summary-of-solution> 
+// Summary: Contains 3 states, q0,q1,q2, with q0 and q2 as accept states. Accepts
+//          when w contains 0*1*0* 
 //
 
-<DFA-definition>
+states =          {q0,q1,q2}
+input_alphabet =  {0,1}
+start_state =     q0
+accept_states =   {q0,q2}
+delta =
+    q0,0 -> {q0,q1};
+    q0,1 -> {q0,q1};
+    
+    q1,0 -> {q1,q2};
+    q1,1 -> {q1,q2};
+    
+    q2,0 -> q2;
+    q2,1 -> q2;
 	
 	
 	
 ///////////////////////////////////////////////////////////////////////////////
 // 1.13
-// NFA recognizing { w | w doesnt contain a pair of 1's that are seperated by an odd number fo symbols }
+// NFA recognizing { w | w doesnt contain a pair of 1's that are seperated by an odd number of symbols }
 // 
-// Summary: <high-level-summary-of-solution> 
+// Summary: Contains 5 states, q0,q1,q2,q3,q4, with all but q4 being accept states. Accepts when w doesnt 
+//          contain a pair of 1's that are seperated by an odd number of symbols 
 //
 
 states =          {q0,q1,q2,q3,q4}
@@ -128,45 +145,42 @@ delta =
 
 ///////////////////////////////////////////////////////////////////////////////
 // 1.15a
-// <problem-description>
+// The states on N are the states of N_1
 // 
-// Summary: <high-level-summary-of-solution> 
+// Summary: The states are the same with the addition of the new start state on N
 //
-
-<DFA-definition>
 
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // 1.15b
-// <problem-description>
+// The start state of N is the same as the start state of N_1
 // 
-// Summary: <high-level-summary-of-solution> 
+// Summary: The extra state that N has over N_1 is the new start state for N
 //
-
-<DFA-definition>
 
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // 1.15c
-// <problem-description>
+// F = {q1} U F_1. The accept states of F are the old accept states plus its start state
 // 
-// Summary: <high-level-summary-of-solution> 
+// Summary: The accept states are the same with the addition of the new start state
 //
-
-<DFA-definition>
+// 
 
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // 1.15d
-// <problem-description>
+// Define δ so that for any q ∈ Q and any a ∈ Σ  ,
 // 
-// Summary: <high-level-summary-of-solution> 
+// Summary: (delta)(q,a) = (delta_1)(q,a)           q ∈ Q1 and q !∈ F_1
+//                          (delta1)(q,a)           q ∈ F1 and a != (epsilon)
+//                          (delta1)(q,a) U {q1}    q ∈ F1 and a = (epsilon)
+//                          {q1}                    q = q0 and a = (epsilon)
+//                          0                       q = q0 and a != (epsilon)
 //
-
-<DFA-definition>
 
 
 
@@ -174,7 +188,8 @@ delta =
 // 1.17a
 // NFA recognizing the language (01 U 001 U 010)*
 // 
-// Summary: <high-level-summary-of-solution> 
+// Summary: Contains 18 states, q0,q1, ... ,q17, with q0,q5,q11,q17 being accept
+//          states. Accepts when the language contains (01 U 001 U 010)*
 //
 
 states =          {q0,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17}
@@ -213,7 +228,8 @@ delta =
 // 1.17b
 // <problem-description>
 // 
-// Summary: <high-level-summary-of-solution> 
+// Summary: Contains 7 states, q0,q1, ... ,q6, with q0,q4,q5 being accept states.
+//          This machine is the DFA representation of 1.17a and accepts the same language.
 //
 
 states =          {q0,q1,q2,q3,q4,q5,q6}
