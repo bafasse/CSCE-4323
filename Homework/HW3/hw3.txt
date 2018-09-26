@@ -1,0 +1,75 @@
+///////////////////////////////////////////////////////////////////////////////
+//	CSCE 4323
+//	Fall 2018
+//	Homework 3
+//	Blake Fasse
+//  The following code is for use with the automata simulators found here:
+//    http://web.cs.ucdavis.edu/~doty/automata/
+///////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////
+// 1.6i
+// Regex recognizing {w | every odd position of w is a 1}
+// 
+// Summary: <high-level-summary-of-solution> 
+//
+
+<DFA-definition>
+	
+	
+	
+///////////////////////////////////////////////////////////////////////////////
+// 1.6j
+// Regex recognizing {w | w contains at least two 0s and at most one 1}
+// 
+// Summary: <high-level-summary-of-solution> 
+//
+
+(00+) | (100+) | (0+10+) | (00+1)
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// 1.19a
+// <Regex recognizing (0 ∪ 1) ∗ 000(0 ∪ 1) ∗
+// 
+// Summary: <high-level-summary-of-solution> 
+//
+
+(0|1)* // start with any string
+000    // contain substring 000
+(0|1)* // end with any string
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// 1.19b
+// Regex recognizing (((00) ∗ (11)) ∪ 01) ∗
+// 
+// Summary: <high-level-summary-of-solution> 
+//
+
+<DFA-definition>
+	
+	
+	
+///////////////////////////////////////////////////////////////////////////////
+// <problem-number>
+// <problem-description>
+// 
+// Summary: <high-level-summary-of-solution> 
+//
+
+<DFA-definition>
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// <problem-number>
+// <problem-description>
+// 
+// Summary: <high-level-summary-of-solution> 
+//
+
+<DFA-definition>
