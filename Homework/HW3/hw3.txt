@@ -37,9 +37,29 @@
 // Summary: <high-level-summary-of-solution> 
 //
 
-(0|1)* // start with any string
-000    // contain substring 000
-(0|1)* // end with any string
+states =          {q0,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17}
+input_alphabet =  {0,1}
+start_state =     q0
+accept_states =   {q12,q15,q17}
+delta =
+    q0,   -> {q1,q6};    
+    q1,   -> {q2,q4};
+    q2,0  -> q3;
+    q3,   -> {q1,q6};
+    q4,1  -> q5;
+    q5,   -> {q1,q6};
+    q6,0  -> q7;
+    q7,   -> q8;
+    q8,0  -> q9;
+    q9,   -> q10;
+    q10,0 -> q11;
+    q11,  -> q12;
+    q12,  -> q13;
+    q13,  -> {q14,q16};
+    q14,0 -> q15;
+    q15,  -> q13;
+    q16,1 -> q17;
+    q17,  -> q13;
 
 
 
@@ -50,26 +70,45 @@
 // Summary: <high-level-summary-of-solution> 
 //
 
-<DFA-definition>
-	
+states =          {q0,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14}
+input_alphabet =  {0,1}
+start_state =     q0
+accept_states =   {q0,q10,q14}
+delta =
+    q0,   -> q1;
+    q1,   -> {q2,q7};
+    q2,   -> {q3,q11};
+    q3,0  -> q4;
+    q4,   -> q5;
+    q5,0  -> q6;
+    q6,   -> {q3,q11};
+    q7,0  -> q8;
+    q8,   -> q9;
+    q9,1  -> q10;
+    q10,  -> q1;
+    q11,1 -> q12;
+    q12,  -> q13;
+    q13,1 -> q14;
+    q14,  -> q1;
+
 	
 	
 ///////////////////////////////////////////////////////////////////////////////
-// <problem-number>
-// <problem-description>
+// 1.21a
+// Use Lemma 1.60 to convert the following finite automata into regular expressiona
 // 
 // Summary: <high-level-summary-of-solution> 
 //
 
-<DFA-definition>
+a*b
+(a|ba*b)*
 
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// <problem-number>
-// <problem-description>
+// 1.21b
+// Use Lemma 1.60 to convert the following finite automata into regular expressiona
 // 
 // Summary: <high-level-summary-of-solution> 
 //
 
-<DFA-definition>
