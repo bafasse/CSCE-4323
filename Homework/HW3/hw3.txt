@@ -32,7 +32,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 // 1.19a
-// <Regex recognizing (0 ∪ 1) ∗ 000(0 ∪ 1) ∗
+// NFA for Regex recognizing (0 ∪ 1) ∗ 000(0 ∪ 1) ∗
 // 
 // Summary: <high-level-summary-of-solution> 
 //
@@ -65,7 +65,7 @@ delta =
 
 ///////////////////////////////////////////////////////////////////////////////
 // 1.19b
-// Regex recognizing (((00) ∗ (11)) ∪ 01) ∗
+// NFA for Regex recognizing (((00) ∗ (11)) ∪ 01) ∗
 // 
 // Summary: <high-level-summary-of-solution> 
 //
@@ -112,3 +112,7 @@ a*b
 // Summary: <high-level-summary-of-solution> 
 //
 
+|(a|b)
+a*b
+((a(a|b)|b)a*b)*
+(|a)
