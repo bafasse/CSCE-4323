@@ -1,0 +1,58 @@
+Theorum 1: Regular Languages are closed under complementation
+
+1
+Prove Theorem 1 (i.e. if L is a regular language, then L̄ = Σ ∗ \ L is also regular).
+
+---------------------------------------------------------------------------
+If L is regular then there is a DFA M = (Q,(sigma),(delta),q,F) such that L = L(M)
+And then M' = (Q,(sigma),(delta,q,,Q/F)) accepts L'
+Since the L' is regular then L will also be regular
+
+
+
+1.46
+Prove that the following language is not regular
+{w | w (epsilon) {0,1}* is not a palidrome}
+----------------------------------------------------
+Assume that L is a regular language
+
+The compliment of the language L is L' = {w | w (epsilon) {0,1}* is a palindrome} is also regular
+
+Assume the string S = 0^p 1 0^p. Divide the string into three parts, xyz, such that S = 0^p 1 0^p = xyz (epsilon) L, where p is the pumping length.
+
+Assume that x = 0^(p-k) ((0^k)^0) 10^p = 0^(p-k)10^p (not epsilon) L [therefore y^0 = (epsilon)]
+
+The string x(y^0)z is not the same from forward and backward direction because p-k < palidrome
+
+So the string x(y^0)z does not belong to L'. This results in a contradiction.
+
+Therefore, by the pumping lemma, L is not a regular language
+
+
+
+1.53
+Let (sigma) = {0,1,+,=} and
+    ADD     = {x = y + z | xyz are binary integers and x is the sum of y and z}
+    Show that ADD is not regular
+--------------------------------------------------------------------
+Assume that ADD is a regular language
+
+Ley p be the pumping length given by the pumping lemma. With the strings of ADD are of the form 
+x = y + z. Consider a string 1^(p+1) = 10^p + 1^p (epsilon) ADD
+
+Let 111 = 100 + 11 be a string that belongs to ADD with a pumping length of 2. Divide the string into 
+three parts, xyz, where x is 1, y is 1, and z is 1 = 100 + 11.
+
+S = 111 = 100 + 11 = (1/x) (1/y) (1 = 100 + 11)/z
+
+Pump the middle part such that x(y^i)z, with i >= 0
+For i = 2, y is 11
+
+S = (1)(1)^i(1=100+11) = (1/x) (11/y) (1=100+11)/z
+
+The string after pumping is 1111 = 100 + 11
+
+The string 1111 = 100 + 11 (not epsilon) ADD because the addition of two binary numbers 100, 11 is not 
+equal to the binary number 1111. 
+
+This is a contradiction. Therefore, ADD is not a regular language.
