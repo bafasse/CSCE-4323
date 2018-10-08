@@ -1,0 +1,65 @@
+///////////////////////////////////////////////////////////////////////////////
+//	CSCE 4323
+//	Fall 2018
+//	Homework #<hw-num>
+//	<student-name>
+//  The following code is for use with the automata simulators found here:
+//    http://web.cs.ucdavis.edu/~doty/automata/
+///////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////
+// 1
+// Give a CFG which generates the language {xy | x,y ∈{0,1}∗, |x| = |y|, and x != y^R}. 
+// 
+// Summary: A CFG is made from tha language provided
+//
+
+S -> AB | BA;
+A -> XAX | 0;
+B -> XBX | 1;
+X -> 0 | 1;
+	
+	
+	
+///////////////////////////////////////////////////////////////////////////////
+// 2
+// Give a CFG which generates the language {a^i b^j | i != j and 2i != j.
+// 
+// Summary: A CFG is made from the language provided
+//
+
+S -> aSb | aTb;
+T -> aTbb | aUbb;
+U ->  ;
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// 3
+// Convert the following CFG to a CFG in Chomsky normal form: 
+//  A → BAB|B| ;
+//  B → 00| ;
+// 
+// Summary: The provided CFG is converted into a CFG in Chomsky normal form
+//
+
+S -> BX | BA | UU | BB | ;
+A -> BX | BA | UU | BB;
+B -> UU;
+U -> 0;
+X -> AB;
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// 4
+// Give a CFG in Chomsky normal form which generates the language {w | w ∈{a,b}∗ 
+// and the number of a’s in w equals the number of b’s in w}.
+// 
+// Summary: A CFG in Chomsky normal form is made from the language provided
+//
+
+ S -> Xb | Ya | SS | ;
+ X -> aS;
+ Y -> bS;
