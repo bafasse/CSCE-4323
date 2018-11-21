@@ -1,0 +1,61 @@
+states =              {s,q1,q2,q3,q4,q5,q6,q7,q8,qA,qR}
+input_alphabet =      {0,1}
+tape_alphabet_extra = {c,x,_}
+start_state =         s
+accept_state =        qA
+reject_state =        qR
+num_tapes =           1
+delta =
+    s,  0  -> q1, c, R;
+    s,  1  -> q2, c, R;
+    s,  c  -> qR, _, R;
+    s,  x  -> qR, _, R;
+    s,  _  -> qA, _, R;
+     
+    q1, 0  -> q1, 0, R;
+    q1, 1  -> q2, 0, R;
+    q1, c  -> qR, _, R;
+    q1, x  -> qR, _, R;
+    q1, _  -> q3, 0, L;
+        
+    q2, 0  -> q1, 1, R;
+    q2, 1  -> q2, 1, R;
+    q2, c  -> qR, _, R;
+    q2, x  -> qR, _, R;
+    q2, _  -> q3, 1, L;
+    
+    q3, 0  -> q3, 0, L;
+    q3, 1  -> q3, 1, L;
+    q3, c  -> q4, c, R;
+    q3, x  -> q3, x, L;
+    q3, _  -> q3, _, L;
+    
+    q4, 0  -> q5, 0, R;
+    q4, 1  -> q6, x, L;
+    q4, c  -> qR, _, R;
+    q4, x  -> q4, x, R;
+    q4, _  -> qA, _, R;
+    
+    q5, 0  -> q5, 0, R;
+    q5, 1  -> q6, x, L;
+    q5, c  -> qR, _, R;
+    q5, x  -> q5, x, R;
+    q5, _  -> qR, _, R;
+    
+    q6, 0  -> q6, 0, L;
+    q6, 1  -> q6, 1, L; 
+    q6, c  -> q7, c, R;
+    q6, x  -> q6, x, L;
+    q6, _  -> q6, _, L;
+        
+    q7, 0  -> q8, x, R;
+    q7, 1  -> q7, 1, R;
+    q7, c  -> qR, _, R;
+    q7, x  -> q7, x, R;
+    q7, _  -> qR, _, R;
+    
+    q8, 0  -> q3, x, L;
+    q8, 1  -> q8, 1, R;
+    q8, c  -> qR, _, R;
+    q8, x  -> q8, x, R;
+    q8, _  -> qR, _, R;
